@@ -4,7 +4,7 @@ function checkForLife(A)
     #######################
     # Assuming we have a square sized grid
     n = size(A,1)
-    B = zeros(Int8,n,n) 
+    B = zeros(Int64,n,n)
     for i = 1:n
         for j = 1:n
             n_neighb = 0
