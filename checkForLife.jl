@@ -1,9 +1,8 @@
-function checkForLife(A)
+function checkForLife(A,n)
     # This function checks which cells that
     # will live in the next iteration
     #######################
     # Assuming we have a square sized grid
-    n = size(A,1)
     B = zeros(Int64,n,n)
     for i = 1:n
         for j = 1:n
@@ -23,12 +22,11 @@ function checkForLife(A)
             else
                 jdx = Int8[j-1,j,j+1]
             end
-
             n_neighb = sum(A[idx,jdx])
             n_neighb -= A[i,j] # we dont want to include its own index
 
             # if cell lives and has two neighbors it survives
-            if A[i,j] & n_neighb == 2 
+            if (A[i,j] == 1 && n_neighb == 2) 
             # if cell lives and has two neighbors it survives
                 B[i,j] = 1
             

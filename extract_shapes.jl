@@ -1,7 +1,6 @@
 
-function extract_shapes(A)
+function extract_shapes(A,n)
 #plot grid with living cells filled
-    n = size(A,1)
     #println("make plot function")
     x = Array{Float64}(undef, 0, 1)
     y = Array{Float64}(undef, 0, 1)
