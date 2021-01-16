@@ -18,7 +18,7 @@ end
 include_graphics = true
 x = 0
 living = true
-while living && (x < 50) # Desired amount of iterations
+while living && (x < 5) # Desired amount of iterations
     # ToDo fix graphics such that the plots are created i a single frame and
     # continously cleared for every iteration
     if include_graphics && mod(x,1) == 0

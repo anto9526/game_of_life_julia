@@ -17,7 +17,7 @@ for  idx in idxs
 end
 
 living = true
-anim = @animate for x in 1:200 # Desired amount of iterations
+anim = @animate for x in 1:100 # Desired amount of iterations
     xpl,ypl = extract_shapes(A,n)
     plot(xpl, ypl, seriestype=:shape,leg=false,
      xlims = (0,n), ylims =(0,n),
@@ -27,6 +27,6 @@ anim = @animate for x in 1:200 # Desired amount of iterations
         break
     end
 end
-#gif(anim, "game_of_life_5fps.gif", fps = 5)
+#gif(anim, "game_of_life_10fps.gif", fps = 10)
 gif(anim,fps = 5)
 
