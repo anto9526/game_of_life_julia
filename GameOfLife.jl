@@ -6,8 +6,7 @@ include("extract_shapes.jl")
 using Plots
 pyplot()
 # define grid size
-n = 40
-
+n = 30
 m = fld(n,2)
 #print(n_mid)
 A = zeros(Int64,n,n)
@@ -18,18 +17,18 @@ for  idx in idxs
 end
 include_graphics = true
 x = 0
-while x < 5 # Desired amount of iterations
+living = true
+while living && (x < 50) # Desired amount of iterations
     # ToDo fix graphics such that the plots are created i a single frame and
     # continously cleared for every iteration
-    if include_graphics 
-        PyPlot.clf()
+    if include_graphics && mod(x,1) == 0
         xpl,ypl = extract_shapes(A,n)
         Plots.display(plot(xpl, ypl, seriestype=:shape,leg=false,
-         xlims = (0,n), ylims =(0,n)))
-
+         xlims = (0,n), ylims =(0,n),
+         title = "Game of life iteration : $x" ))
         sleep(0.1) 
     end
-    A = checkForLife(A,n)
+    A, living = checkForLife(A,n)
     x+=1
 end
 

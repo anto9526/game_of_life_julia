@@ -37,5 +37,6 @@ function checkForLife(A,n)
             # else cell dies or remians dead
         end
     end
-    return B
+    living = (A != B) # break if terminal state is reached
+    return B,living
 end
